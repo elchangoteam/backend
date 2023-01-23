@@ -1,5 +1,5 @@
 
-const products = [];
+let products = [];
 
 class ProductManager {
     constructor(title, description, price, thumbnail, stock) {
