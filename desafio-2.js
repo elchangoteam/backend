@@ -29,7 +29,7 @@ class ProductManager {
 const addProduct = async (title, description, price, thumbnail, stock) => {
     if(title, description, price, thumbnail, stock){       
         products.push(new ProductManager(title, description, price, thumbnail, stock))  
-        await fs.writeFile('./db.txt' , JSON.stringify(products))
+        await fs.writeFile('db.txt' , JSON.stringify(products))
     }
     else{
         console.log("ERROR: Todos los datos para poder cargar el producto son obligatorios")  
@@ -38,7 +38,7 @@ const addProduct = async (title, description, price, thumbnail, stock) => {
 }
 
 const getProducts = async () => {
-    let resultado = await fs.readFile('./db.txt', 'utf-8')
+    let resultado = await fs.readFile('db.txt', 'utf-8')
     products = JSON.parse(resultado)
    
     if (products.length === 0) {
@@ -50,7 +50,7 @@ const getProducts = async () => {
 }
 
 const getProductsById = async (id) => {
-    let resultado = await fs.readFile('./db.txt', 'utf-8')
+    let resultado = await fs.readFile('db.txt', 'utf-8')
     products = JSON.parse(resultado)
 
     let findProduct = products.find(products => products.code === id)
@@ -66,7 +66,7 @@ const getProductsById = async (id) => {
 }
 
 const updateProduct = async (id, newPrice) =>{
-    let resultado = await fs.readFile('./db.txt', 'utf-8')
+    let resultado = await fs.readFile('db.txt', 'utf-8')
     products = JSON.parse(resultado)
     
     let findProduct = products.find(products => products.code === id)
@@ -74,7 +74,7 @@ const updateProduct = async (id, newPrice) =>{
 
     if (findProduct) {
         findProduct.price = newPrice        
-        await fs.writeFile('./db.txt' , JSON.stringify(products))
+        await fs.writeFile('db.txt' , JSON.stringify(products))
         
     }
     else {
@@ -85,13 +85,13 @@ const updateProduct = async (id, newPrice) =>{
 }
 
 const deleteProduct = async (id) => {
-    let resultado = await fs.readFile('./db.txt', 'utf-8')
+    let resultado = await fs.readFile('db.txt', 'utf-8')
     products = JSON.parse(resultado)
 
     if(products.some(products => products.code  === id)){
     products = products.filter(products => products.code !== id)
 
-    await fs.writeFile('./db.txt' , JSON.stringify(products))
+    await fs.writeFile('db.txt' , JSON.stringify(products))
     }
     else {
 
