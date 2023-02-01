@@ -1,4 +1,3 @@
-
 let products = [];
 
 class ProductManager {
@@ -64,5 +63,3 @@ addProduct("Razer Mouse", "Gamming Mouse", "./img/razermouse.png");
 getProducts();
 getProductsById(2);
 getProductsById(7);
-
-
