@@ -1,0 +1,24 @@
+@api = http://localhost:3000/residentes
+
+GET {{api}}
+
+###
+
+POST {{api}}
+content-type: application/json
+
+{
+    "name": "Pasdd",
+    "description": "Mousepad Hyperx",
+    "quantity": 10
+}
+
+###
+
+
+GET {{api}}/2
+
+
+###
+
+DELETE {{api}}/4
